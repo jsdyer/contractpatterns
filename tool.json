@@ -1,16 +1,22 @@
 {
-  "id": "coolcode-tool-template",
-  "title": "CoolCode Tool Starter",
-  "description": "A browser-only example that trims lines and removes exact duplicates.",
-  "category": "security",
-  "tags": ["text", "lines", "duplicates"],
-  "icon": "scan-search",
-  "url": "/coolcode-tool-template/",
-  "source": "https://github.com/jsdyer/coolcode-tool-template",
+  "id": "contractpatterns",
+  "title": "Contract Patterns",
+  "description": "Follow awards, amendments and repeated vendor relationships. Find patterns worth checking against the original disclosures.",
+  "category": "disclosures",
+  "tags": [
+    "contractpatterns",
+    "disclosures",
+    "public data",
+    "history"
+  ],
+  "icon": "history",
+  "url": "/contractpatterns/",
+  "source": "https://github.com/jsdyer/contractpatterns",
   "hosting": "project",
   "access": "browser",
   "data_info": {
-    "mode": "local",
-    "detail": "The browser reads the text you paste and compares its lines."
+    "mode": "snapshot",
+    "detail": "Federal contract disclosures for a rolling year, with reported amendments and award clusters.",
+    "cadence": "Weekly"
   }
 }

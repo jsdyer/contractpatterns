@@ -1,21 +1,6 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { cleanLines } from '../web/model.mjs';
-test('trims, removes blanks and preserves first-seen order', () => {
-  assert.deepEqual(cleanLines('  Halifax\nLangley\nHalifax\n\nVancouver  '), {
-    text: 'Halifax\nLangley\nVancouver', count: 3, removed: 1,
-  });
-});
-test('supports Windows and old Mac line endings', () => {
-  assert.equal(cleanLines('a\r\nb\ra').text, 'a\nb');
-});
-test('empty text and whitespace produce an empty result', () => {
-  assert.deepEqual(cleanLines(' \n\t'), { text: '', count: 0, removed: 0 });
-});
-test('preserves case and Unicode', () => {
-  assert.equal(cleanLines('Québec\nquébec\n東京\nQuébec').text, 'Québec\nquébec\n東京');
-});
-test('treats markup as ordinary text', () => {
-  assert.equal(cleanLines('<script>alert(1)</script>\n<script>alert(1)</script>').text, '<script>alert(1)</script>');
-});
-test('rejects non-text input', () => { assert.throws(() => cleanLines(null), TypeError); });
+import test from 'node:test';import assert from 'node:assert/strict';
+import {normalizeVendor,clusters} from '../web/model.mjs';
+test('normalization is exact punctuation/case folding, not corporate identity matching',()=>{assert.equal(normalizeVendor('Acme, INC.'),'acme inc');assert.notEqual(normalizeVendor('Acme Ltd'),normalizeVendor('Acme Inc'));});
+test('cluster windows exclude amendments and do not cross departments',()=>{const rows=[{id:'1',vendor:'A',vendor_key:'a',department:'X',kind:'Award',date:'2026-01-01',amount:10},{id:'2',vendor:'A',vendor_key:'a',department:'X',kind:'Award',date:'2026-01-08',amount:20},{id:'3',vendor:'A',vendor_key:'a',department:'X',kind:'Amendment',date:'2026-01-02',amount:100},{id:'4',vendor:'A',vendor_key:'a',department:'Y',kind:'Award',date:'2026-01-02',amount:40}];assert.equal(clusters(rows,7)[0].value,2);assert.equal(clusters(rows,7)[0].total,30);assert.equal(clusters(rows,6).length,0);});
+
+test('maximal sliding windows retain overlaps but suppress contained subsets',()=>{const rows=[1,2,5,8].map((d,i)=>({id:String(i),vendor:'A',vendor_key:'a',department:'X',kind:'Award',date:'2026-01-'+String(d).padStart(2,'0'),amount:1}));const windows=clusters(rows,4);assert.deepEqual(windows.map(w=>w.ids),[['0','1','2'],['2','3']]);});
