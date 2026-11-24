@@ -7,6 +7,8 @@ def assemble(root,stage):
     history=json.loads((root/'data/history.json').read_text())
     if not history:raise ValueError('Missing archive provenance')
     shutil.copytree(root/'data',stage/'data')
+    # Reuse the source check time; rebuilding must never make a capture newer.
+    (stage/'data/status.json').write_text(json.dumps({'checked_at': current.get('checked_at'), 'captured_at': current['captured_at']})+'\n')
     shutil.copytree(root/'archive',stage/'archive')
     tool=json.loads((root/'tool.json').read_text());url='https://coolcode.ca/'+tool['id']+'/'
     items=[]
