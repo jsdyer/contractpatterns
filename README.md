@@ -8,6 +8,8 @@ Open https://coolcode.ca/contractpatterns/
 Set a 7-, 30- or 90-day window and an amount band to find repeated awards to the same normalized vendor within a department. Open a row for reported amendments; these patterns are leads, not findings of contract splitting.
 <!-- /coolcode:guide -->
 
+The opening example comes from a named positive amendment in the saved edition. It shows the reporting quarter and incremental amendment, with the cumulative contract value and a direct federal disclosure link under “Inspect this amendment”.
+
 ## Sources and interpretation
 
 The rolling collection covers disclosures whose reported contract date lies in the preceding 12 months. This is not a complete amendment census: an amendment may retain an older original contract date.

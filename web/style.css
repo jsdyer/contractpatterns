@@ -2,3 +2,9 @@
 
 /* Large currency totals and long department names must fit narrow columns. */
 .metric strong{overflow-wrap:anywhere}.controls{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}.facets{min-width:0}@media(max-width:760px){.controls{grid-template-columns:minmax(0,1fr)}.facets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.receipt h2{margin:.55rem 0;font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.16;overflow-wrap:anywhere}
+.receipt p{padding:0;margin:.55rem 0;border:0}
+.receipt summary{font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:.2em;padding:.4rem 0}
+.receipt .search-link{margin-top:.65rem}
+@media(max-width:700px){.hero{padding-block:1.55rem;gap:1rem}.hero h1{font-size:clamp(2.35rem,10vw,3.35rem);margin-bottom:.6rem}.hero .intro{font-size:1rem}.receipt{padding:1rem;transform:none}}

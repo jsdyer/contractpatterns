@@ -1,6 +1,6 @@
 export default {
   "title": "Contract Patterns",
-  "intro": "Follow awards, amendments and repeated vendor relationships. Find patterns worth checking against the original disclosures.",
+  "intro": "Search by vendor or department to see awards, amendment amounts and the original disclosures.",
   "eyebrow": "FEDERAL PROCUREMENT / REPORTED CONTRACTS",
   "accent": "#72513a",
   "tint": "#f2e9df",
@@ -11,7 +11,7 @@ export default {
     "Award amounts and incremental amendments are kept separate from cumulative reported contract values. Never sum cumulative values as new spending. Reporting quarter is retained because contract date does not necessarily date amendment approval."
   ],
   "id": "contractpatterns",
-  "explorer-title": "Follow the record.",
+  "explorer-title": "Search contract disclosures",
   "cadence": "Weekly automated collection. Source dates and capture dates are shown separately.",
   "facets": [
     {
