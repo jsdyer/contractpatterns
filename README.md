@@ -6,6 +6,7 @@ Open https://coolcode.ca/contractpatterns/
 
 <!-- coolcode:guide -->
 Set a 7-, 30- or 90-day window and an amount band to find repeated awards to the same normalized vendor within a department. Open a row for reported amendments; these patterns are leads, not findings of contract splitting.
+Grant Trail links procurement searches to the corresponding search for federal funding agreements.
 <!-- /coolcode:guide -->
 
 The opening example comes from a named positive amendment in the saved edition. It shows the reporting quarter and incremental amendment, with the cumulative contract value and a direct federal disclosure link under “Inspect this amendment”.
